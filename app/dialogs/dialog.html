@@ -1,0 +1,29 @@
+<md-dialog style="min-width:300px" >
+    <form>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>{{user.forename}} {{user.surname}}</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()" aria-label="Close">
+                    <i class="fa fa-close"></i>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content style="max-width:1000px;max-height:810px;" >
+            <md-tabs md-dynamic-height md-border-bottom>
+                <md-tab label="Details">
+                    <md-content class="md-padding">
+                        <h2 class="md-display-1">User Details</h2>
+
+                        <!-- USER TYPE -->
+                        <md-card md-colors="{background: 'default-accent-100'}" class="dialogdetails-card wrap-card" layout="column" layout-align="center center" layout-padding>
+                            User Type:
+                            <md-card md-colors="{background: 'default-primary-600'}" class="dialogdetails-card wrap-card" layout="column" layout-align="center center" layout-padding>
+                                {{user.accountType}} <i class="fa" ng-class="user.accountType == 'local' ? 'fa-home' : (user.accountType == 'facebook' ? 'fa-facebook' :(user.accountType == 'admin' ? 'fa-lock' :''))"></i>
+                            </md-card>
+                        </md-card>
+                    </md-content>
+                </md-tab>
+            </md-tabs>
+        </md-dialog-content>
+</md-dialog>
