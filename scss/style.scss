@@ -1,3 +1,24 @@
-body{
-
+.navButton{
+  cursor:pointer;
+}
+.responsive-card{
+  display:inline-block;
+}
+.responsive-card.product-card{
+  width: calc(100% - 16px);
+}
+@media (min-width: 700px) {
+  .responsive-card.product-card{
+    width: calc(50% - 16px);
+  }
+}
+@media (min-width: 1280px) {
+  .responsive-card.product-card{
+    width: calc(33.3333% - 16px);
+  }
+}
+@media (min-width: 2000px) {
+  .responsive-card.product-card{
+    width: calc(25% - 16px);
+  }
 }

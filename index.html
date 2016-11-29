@@ -23,6 +23,7 @@
 
     <!-- Load Views -->
     <script src="app/views/home.view.js"></script>
+    <script src="app/views/products.view.js"></script>
 
     <!-- Load Factories -->
     <script src="app/factories/factory.js"></script>
@@ -31,34 +32,71 @@
     <script src="app/dialogs/dialog.js"></script>
 
 </head>
-<body ng-app="app" ng-controller="appCtrl" layout="row" ng-cloak>
-    <md-sidenav
-            class="md-sidenav-left"
-            md-component-id="left"
-            md-is-locked-open="$mdMedia('gt-md')"
-            md-whiteframe="4"
-            style="display: inline-block"
-            md-colors="{background: 'default-primary-900'}">
-        <md-toolbar>
-            <a href="/HCI/#/"><img src="img/msylogo.png"/></a>
-        </md-toolbar>
-        <md-content md-colors="{background: 'default-primary-900'}">
-            <div ng-repeat="menuitem in menuitems">
-                <md-card class="" md-colors="{background: 'default-primary-600'}" layout-padding>{{menuitem.title}}</md-card>
-            </div>
-        </md-content>
-    </md-sidenav>
-    <md-content flex style="display: inline-block;">
-        <md-toolbar layout-padding layout="row">
-            <span flex></span>
-            <span>test</span>
-        </md-toolbar>
-        <ng-view ng-cloak></ng-view>
-    </md-content>
-</body>
-</html>
+<body ng-app="app" ng-controller="appCtrl" layout="column" layout-fill ng-cloak>
+    <div layout="row" flex>
+        <md-sidenav
+                class="md-sidenav-left"
+                md-component-id="left"
+                md-is-locked-open="true"
+                md-whiteframe="4"
+                style="display: inline-block"
+                md-colors="{background: 'default-primary-900'}">
+            <md-toolbar>
+                <a href="/HCI/#/"><img src="img/msylogo.png"/></a>
+            </md-toolbar>
+            <md-content md-colors="{background: 'default-primary-900'}">
+                <div ng-repeat="menuitem in menuitems">
+                    <md-card class="navButton" md-colors="{background: 'default-primary-600'}" layout-padding ng-click="navigate(menuitem.url)">{{menuitem.title}}</md-card>
+                </div>
+            </md-content>
+        </md-sidenav>
+        <md-content flex style="display: inline-block;">
+            <md-toolbar layout="row" md-colors="{background: 'default-primary-800'}">
+                <span flex></span>
+                <div ng-switch="location">
+                    <h3 ng-switch-when="/">Home</h3>
+                    <h3 ng-switch-when="/promotion-products">Promotion Products</h3>
+                    <h3 ng-switch-when="/new-products">New Products</h3>
+                    <h3 ng-switch-when="/pc-components">PC Components</h3>
+                    <h3 ng-switch-when="/peripherals">Peripherals</h3>
+                    <h3 ng-switch-when="/notebooks">Notebooks</h3>
+                    <h3 ng-switch-when="/notebook-accessories">Notebook Accessories</h3>
+                    <h3 ng-switch-when="/pc-accessories">PC Accessories</h3>
+                    <h3 ng-switch-when="/mobile-phone">Mobile Phone</h3>
+                    <h3 ng-switch-when="/stock-clearance">Stock Clearance</h3>
+                    <h3 ng-switch-when="/cableist-store">CableList Store</h3>
+                    <h3 ng-switch-when="/logitech-store">Logitech Store</h3>
+                    <h3 ng-switch-when="/microsoft-store">Microsoft Store</h3>
+                    <h3 ng-switch-when="/samsung-store">Samsung Store</h3>
+                    <h3 ng-switch-when="/corsair-store">Corsair Store</h3>
+                </div>
+                <span flex></span>
+            </md-toolbar>
+            <ng-view ng-cloak></ng-view>
 
-<!--
-Copyright 2016 Google Inc. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that can be in foundin the LICENSE file at http://material.angularjs.org/license.
--->
+        </md-content>
+    </div>
+    <md-content md-colors="{background: 'default-accent-800'}" layout="row">
+        <md-card class="" md-colors="{background: 'default-accent-600'}" layout-padding layout="row" flex>
+            <span flex></span>
+            Contact Us
+            <span flex></span>
+        </md-card>
+        <md-card class="" md-colors="{background: 'default-accent-600'}" layout-padding flex layout="row">
+            <span flex></span>
+            Careers
+            <span flex></span>
+        </md-card>
+        <md-card class="" md-colors="{background: 'default-accent-600'}" layout-padding flex layout="row">
+            <span flex></span>
+            Privacy Statement
+            <span flex></span>
+        </md-card>
+    </md-content>
+
+
+
+
+</body>
+
+</html>

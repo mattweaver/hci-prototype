@@ -3,37 +3,19 @@
  */
 var app = angular.module('app', ['ngRoute', 'ngMaterial', 'ngStorage']);
 
-app.controller('appCtrl', function($scope, $rootScope, $location) {
+app.controller('appCtrl', function($scope, $rootScope, $location, menuitems) {
 
     $scope.location = $location.$$path;
     $rootScope.navigate = function(route){
-        if(route == 'back'){
+        if(route == 'back')
             $window.history.back();
-        }
         else{
             $location.path(route);
             $scope.location = route;
         }
     };
 
-    $scope.menuitems = [
-        {index:1, title:"Promotion Products"},
-        {index:2, title:"New Products"},
-        {index:3, title:"PC Components"},
-        {index:4, title:"Peripherals"},
-        {index:5, title:"Notebooks"},
-        {index:6, title:"Notebook Accessories"},
-        {index:7, title:"PC Accessories"},
-        {index:8, title:"Mobile Phone"},
-        {index:9, title:"Stock Clearance"},
-        {index:10, title:"CableList Store"},
-        {index:11, title:"Logitech Store"},
-        {index:12, title:"Microsoft Store"},
-        {index:13, title:"Samsung Store"},
-        {index:14, title:"Corsair Store"}
-
-    ]
-
+    $scope.menuitems = menuitems;
 
 });
 
@@ -64,10 +46,22 @@ app.config(function($routeProvider, $httpProvider,$mdThemingProvider) {
 
     $routeProvider
         .when('/', {
-            templateUrl: "app/views/home.view.html",
-            controller: "homeCtrl",
-            controllerAs: "homeCtrl"
+            templateUrl: "app/views/home.view.html", controller: "homeCtrl", controllerAs: "homeCtrl"
         })
+        .when('/promotion-products', {templateUrl: "app/views/products.view.html", controller: "productsCtrl", controllerAs: "productsCtrl", pageName:"promotion-products"})
+        .when('/new-products', {templateUrl: "app/views/products.view.html", controller: "productsCtrl", controllerAs: "productsCtrl", pageName:"new-products"})
+        .when('/pc-components', {templateUrl: "app/views/products.view.html", controller: "productsCtrl", controllerAs: "productsCtrl", pageName:"pc-components"})
+        .when('/peripherals', {templateUrl: "app/views/products.view.html", controller: "productsCtrl", controllerAs: "productsCtrl", pageName:"peripherals"})
+        .when('/notebooks', {templateUrl: "app/views/products.view.html", controller: "productsCtrl", controllerAs: "productsCtrl", pageName:"notebooks"})
+        .when('/notebook-accessories', {templateUrl: "app/views/products.view.html", controller: "productsCtrl", controllerAs: "productsCtrl", pageName:"notebook-accessories"})
+        .when('/pc-accessories', {templateUrl: "app/views/products.view.html", controller: "productsCtrl", controllerAs: "productsCtrl", pageName:"pc-accessories"})
+        .when('/mobile-phone', {templateUrl: "app/views/products.view.html", controller: "productsCtrl", controllerAs: "productsCtrl", pageName:"mobile-phone"})
+        .when('/stock-clearance', {templateUrl: "app/views/products.view.html", controller: "productsCtrl", controllerAs: "productsCtrl", pageName:"stock-clearance"})
+        .when('/cableist-store', {templateUrl: "app/views/products.view.html", controller: "productsCtrl", controllerAs: "productsCtrl", pageName:"cableist-store"})
+        .when('/logitech-store', {templateUrl: "app/views/products.view.html", controller: "productsCtrl", controllerAs: "productsCtrl", pageName:"logitech-store"})
+        .when('/microsoft-store', {templateUrl: "app/views/products.view.html", controller: "productsCtrl", controllerAs: "productsCtrl", pageName:"microsoft-store"})
+        .when('/samsung-store', {templateUrl: "app/views/products.view.html", controller: "productsCtrl", controllerAs: "productsCtrl", pageName:"promotion-products"})
+        .when('/corsair-store', {templateUrl: "app/views/products.view.html", controller: "productsCtrl", controllerAs: "productsCtrl", pageName:"corsair-store"})
         .otherwise({
             redirectTo: '/'
         })
