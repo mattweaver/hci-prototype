@@ -1,0 +1,31 @@
+{
+  "name": "hci",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "angular-route": "^1.5.9",
+    "angular": "^1.5.9",
+    "angular-material": "^1.1.1",
+    "angular-animate": "^1.5.9",
+    "font-awesome": "^4.7.0",
+    "angular-aria": "^1.5.9",
+    "ng-storage": "^0.3.2",
+    "angular-swiper": "^0.4.0",
+    "swiper": "^3.4.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mattweaver/hci-prototype.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mattweaver/hci-prototype/issues"
+  },
+  "homepage": "https://github.com/mattweaver/hci-prototype#readme"
+}
