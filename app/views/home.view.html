@@ -1,3 +1,18 @@
+
 <div layout-padding>
-    rat, dictum vel egestas ut, congue sed lacus. Sed lacinia tincidunt ipsum id bibendum. Donec lacinia dolor a sollicitudin tincidunt. Curabitur vulputate turpis sed ullamcorper dapibus. Aenean rhoncus sem ut nunc dignissim varius. Proin sit amet velit eget ligula tempor finibus id a velit. Duis eget arcu egestas, lacinia velit ac, blandit quam. Etiam turpis risus, volutpat in aliquet ac, suscipit vel ante. Suspendisse ac mollis sapien. Curabitur nisl enim, vulputate varius efficitur pretium, bibendum a ex. Pellentesque leo lorem, tincidunt vel quam ut, dapibus semper purus. Suspendisse sit amet condimentum erat, a molestie enim. Cras at lectus scelerisque, vulputate risus ut, lacinia eros. Vivamus in odio eget nibh ultrices eleifend et ut orci.
+
+    <ks-swiper-container
+            initial-slide="1"
+            loop="true"
+            autoplay="3000"
+            show-nav-buttons="true"
+            slides-per-view="1"
+            space-between="0"
+            pagination-is-active="false"
+            pagination-clickable="false">
+        <ks-swiper-slide class="swiper-slide" ng-repeat="s in [1,2,3,4,5]" style="text-align:center">
+            <img ng-src="img/offers/offer{{s}}.png" width="80%">
+        </ks-swiper-slide>
+    </ks-swiper-container>
+
 </div>

@@ -1,0 +1,52 @@
+<md-card md-colors="{background: 'default-accent-100'}" class="responsive-card product-card" layout-padding>
+    <md-card-title>
+        <md-card-title-text>
+            <span class="md-headline">{{product.brand}}</span>
+            <span class="md-subhead">{{product.name}}</span>
+            <table>
+                <tr>
+                    <td>
+                        Screen:
+                    </td>
+                    <td>
+                        <md-card md-colors="{background: 'default-accent-600'}" class="dialogdetails-card wrap-card" layout="row" layout-align="center center" layout-padding layout-wrap>
+                            {{product.screen}}
+                        </md-card>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        RAM:
+                    </td>
+                    <td>
+                        <md-card md-colors="{background: 'default-accent-600'}" class="dialogdetails-card wrap-card" layout="row" layout-align="center center" layout-padding layout-wrap>
+                            {{product.ram}}
+                        </md-card>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Brand:
+                    </td>
+                    <td>
+                        <md-card md-colors="{background: 'default-accent-600'}" class="dialogdetails-card wrap-card" layout="row" layout-align="center center" layout-padding layout-wrap>
+                            {{product.brand}}
+                        </md-card>
+                    </td>
+                </tr>
+            </table>
+        </md-card-title-text>
+        <md-card-title-media class="productPrice">
+            <img class="md-media-lg card-media" src="img/products/{{product.img}}"/>
+            <h2>{{product.price}}</h2>
+        </md-card-title-media>
+    </md-card-title>
+    <md-card-actions layout="row" layout-align="end center">
+        <md-button md-colors="{background: 'default-primary-700'}" ng-if="product.available" ng-click="addToBasket(product)">
+            <i class="fa fa-shopping-cart" aria-hidden="true"></i> Add To Basket
+        </md-button>
+        <md-button md-colors="{background: 'default-accent-300'}" ng-if="!product.available">
+            <i class="fa fa-shopping-cart" aria-hidden="true"></i> Currently Unavailable
+        </md-button>
+    </md-card-actions>
+</md-card>

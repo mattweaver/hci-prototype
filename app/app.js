@@ -1,7 +1,7 @@
 /**
  * Created by matt on 23/06/2016.
  */
-var app = angular.module('app', ['ngRoute', 'ngMaterial', 'ngStorage']);
+var app = angular.module('app', ['ngRoute', 'ngMaterial', 'ngStorage', 'ksSwiper']);
 
 app.controller('appCtrl', function($scope, $rootScope, $location, menuitems) {
 
@@ -12,6 +12,7 @@ app.controller('appCtrl', function($scope, $rootScope, $location, menuitems) {
         else{
             $location.path(route);
             $scope.location = route;
+
         }
     };
 

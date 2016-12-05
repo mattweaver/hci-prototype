@@ -1,52 +1,25 @@
-git
+<search></search>
+<filter></filter>
+{{ productFilters.filters}}
 <div flex>
-    <md-card md-colors="{background: 'default-accent-100'}" class="responsive-card product-card" ng-repeat="product in products" layout-padding>
-        <md-card-title>
-            <md-card-title-text>
-                <span class="md-headline">{{product.brand}}</span>
-                <span class="md-subhead">{{product.name}}</span>
-                <table>
-                    <tr>
-                        <td>
-                            Screen:
-                        </td>
-                        <td>
-                            <md-card md-colors="{background: 'default-accent-600'}" class="dialogdetails-card wrap-card" layout="row" layout-align="center center" layout-padding layout-wrap>
-                                {{product.screen}}
-                            </md-card>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            RAM:
-                        </td>
-                        <td>
-                            <md-card md-colors="{background: 'default-accent-600'}" class="dialogdetails-card wrap-card" layout="row" layout-align="center center" layout-padding layout-wrap>
-                                {{product.ram}}
-                            </md-card>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Brand:
-                        </td>
-                        <td>
-                            <md-card md-colors="{background: 'default-accent-600'}" class="dialogdetails-card wrap-card" layout="row" layout-align="center center" layout-padding layout-wrap>
-                                {{product.brand}}
-                            </md-card>
-                        </td>
-                    </tr>
-                </table>
-            </md-card-title-text>
-            <md-card-title-media>
-                <img class="md-media-lg card-media" src="img/products/{{product.img}}"/>
-            </md-card-title-media>
-        </md-card-title>
-        <md-card-actions layout="row" layout-align="end center">
-            <md-button md-colors="{background: 'default-primary-700'}">
-                <i class="fa fa-shopping-cart" aria-hidden="true"></i> Add To Basket
-            </md-button>
-        </md-card-actions>
-    </md-card>
+    <product ng-repeat="product in products
+    | filter: productSearch
+    | filter: filters.ram1
+    | filter: filters.ram2
+    | filter: filters.ram3
+    | filter: filters.ram4
+    | filter: filters.ram5
+    | filter: filters.ram6
+    | filter: filters.brand1
+    | filter: filters.brand2
+    | filter: filters.brand3
+    | filter: filters.brand4
+    | filter: filters.screen1
+    | filter: filters.screen2
+    | filter: filters.screen3
+    | filter: filters.screen4
+    | filter: pageName
+
+"></product>
 </div>
 

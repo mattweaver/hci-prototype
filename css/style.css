@@ -4,17 +4,47 @@
 .responsive-card {
   display: inline-block; }
 
-.responsive-card.product-card {
+.wrap-card {
+  display: inline-block; }
+
+.control-card md-card-title {
+  min-height: 150px; }
+
+.productPrice {
+  text-align: center; }
+
+md-checkbox {
+  margin: 0; }
+
+.checkbox-card {
+  padding: 5px; }
+
+.responsive-card.filter-card md-tabs {
+  margin-top: -8px; }
+
+.responsive-card.product-card, .responsive-card.filter-card {
   width: calc(100% - 16px); }
 
 @media (min-width: 700px) {
   .responsive-card.product-card {
-    width: calc(50% - 16px); } }
+    width: calc(50% - 16px); }
+
+  .responsive-card.filter-card {
+    width: calc(100% - 16px); } }
 @media (min-width: 1280px) {
-  .responsive-card.product-card {
-    width: calc(33.3333% - 16px); } }
+  .responsive-card.product-card, .responsive-card.search-card {
+    width: calc(33.3333% - 16px); }
+
+  .responsive-card.filter-card {
+    width: calc(66.6666% - 21px); } }
 @media (min-width: 2000px) {
-  .responsive-card.product-card {
-    width: calc(25% - 16px); } }
+  .responsive-card.product-card, .responsive-card.filter-card {
+    width: calc(25% - 16px); }
+
+  .responsive-card.filter-card {
+    width: calc(75% - 21px); } }
+.swiper-container {
+  width: 80%;
+  height: 350px; }
 
 /*# sourceMappingURL=style.css.map */
