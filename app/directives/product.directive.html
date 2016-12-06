@@ -9,7 +9,7 @@
                         Screen:
                     </td>
                     <td>
-                        <md-card md-colors="{background: 'default-accent-600'}" class="dialogdetails-card wrap-card" layout="row" layout-align="center center" layout-padding layout-wrap>
+                        <md-card md-colors="{background: 'default-accent-400'}" class="dialogdetails-card wrap-card" layout="row" layout-align="center center" layout-padding layout-wrap>
                             {{product.screen}}
                         </md-card>
                     </td>
@@ -19,7 +19,7 @@
                         RAM:
                     </td>
                     <td>
-                        <md-card md-colors="{background: 'default-accent-600'}" class="dialogdetails-card wrap-card" layout="row" layout-align="center center" layout-padding layout-wrap>
+                        <md-card md-colors="{background: 'default-accent-400'}" class="dialogdetails-card wrap-card" layout="row" layout-align="center center" layout-padding layout-wrap>
                             {{product.ram}}
                         </md-card>
                     </td>
@@ -29,7 +29,7 @@
                         Brand:
                     </td>
                     <td>
-                        <md-card md-colors="{background: 'default-accent-600'}" class="dialogdetails-card wrap-card" layout="row" layout-align="center center" layout-padding layout-wrap>
+                        <md-card md-colors="{background: 'default-accent-400'}" class="dialogdetails-card wrap-card" layout="row" layout-align="center center" layout-padding layout-wrap>
                             {{product.brand}}
                         </md-card>
                     </td>
@@ -38,7 +38,10 @@
         </md-card-title-text>
         <md-card-title-media class="productPrice">
             <img class="md-media-lg card-media" src="img/products/{{product.img}}"/>
-            <h2>{{product.price}}</h2>
+            <h2 style="margin-bottom: 0;">{{product.price}}</h2>
+            <md-button md-colors="{background: 'default-accent-800'}" ng-click="showProductDialog(product)">
+                <i class="fa fa-info-circle" aria-hidden="true"></i> More Info
+            </md-button>
         </md-card-title-media>
     </md-card-title>
     <md-card-actions layout="row" layout-align="end center">

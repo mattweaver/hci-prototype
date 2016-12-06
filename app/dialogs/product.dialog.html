@@ -1,0 +1,70 @@
+<md-dialog style="min-width:300px" >
+    <form>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>{{product.brand}}: Product Details</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()" aria-label="Close">
+                    <i class="fa fa-close"></i>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content style="max-width:1000px;max-height:810px;" layout-padding layout="column">
+            <md-card md-colors="{background: 'default-accent-100'}" class="" layout-padding>
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline">{{product.brand}}</span>
+                        <span class="md-subhead">{{product.name}}</span>
+                        <table>
+                            <tr>
+                                <td>
+                                    Screen:
+                                </td>
+                                <td>
+                                    <md-card md-colors="{background: 'default-accent-400'}" class="dialogdetails-card wrap-card" layout="row" layout-align="center center" layout-padding layout-wrap>
+                                        {{product.screen}}
+                                    </md-card>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    RAM:
+                                </td>
+                                <td>
+                                    <md-card md-colors="{background: 'default-accent-400'}" class="dialogdetails-card wrap-card" layout="row" layout-align="center center" layout-padding layout-wrap>
+                                        {{product.ram}}
+                                    </md-card>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Brand:
+                                </td>
+                                <td>
+                                    <md-card md-colors="{background: 'default-accent-400'}" class="dialogdetails-card wrap-card" layout="row" layout-align="center center" layout-padding layout-wrap>
+                                        {{product.brand}}
+                                    </md-card>
+                                </td>
+                            </tr>
+                        </table>
+                        <h5>Product description and more details go here</h5>
+                    </md-card-title-text>
+                    <md-card-title-media class="productPrice">
+                        <img class="md-media-lg card-media" src="img/products/{{product.img}}"/>
+                        <h2 style="margin-bottom: 0;">{{product.price}}</h2>
+                        <md-button md-colors="{background: 'default-accent-800'}" ng-if="product.available" ng-click="showProductDialog(product)">
+                            <i class="fa fa-info-circle" aria-hidden="true"></i> More Info
+                        </md-button>
+                    </md-card-title-media>
+                </md-card-title>
+                <md-card-actions layout="row" layout-align="end center">
+                    <md-button md-colors="{background: 'default-primary-700'}" ng-if="product.available" ng-click="addToBasket(product)">
+                        <i class="fa fa-shopping-cart" aria-hidden="true"></i> Add To Basket
+                    </md-button>
+                    <md-button md-colors="{background: 'default-accent-300'}" ng-if="!product.available">
+                        <i class="fa fa-shopping-cart" aria-hidden="true"></i> Currently Unavailable
+                    </md-button>
+                </md-card-actions>
+            </md-card>
+        </md-dialog-content>
+</md-dialog>

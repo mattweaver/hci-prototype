@@ -37,7 +37,7 @@
     <script src="app/directives/filter.directive.js"></script>
 
     <!-- Load Dialogs -->
-    <script src="app/dialogs/dialog.js"></script>
+    <script src="app/dialogs/product.dialog.js"></script>
 
     <!-- Load Utils -->
     <script src="app/utils/filters.js"></script>
@@ -56,7 +56,14 @@
                 <img src="img/msylogo.png" ng-click="navigate('home')" style="cursor:pointer"/>
             </md-toolbar>
             <md-content md-colors="{background: 'default-primary-900'}">
-                <div ng-repeat="menuitem in menuitems">
+                <div layout="column" layout="padding" style="padding:10px;">
+                    <md-input-container style="margin:0; height: 25px;">
+                        <label style="color: rgba(254, 254, 254, 0.7)">Search Menu</label>
+                        <input ng-model="menuSearch" md-colors="{color: 'default-accent-100'}">
+                    </md-input-container>
+                </div>
+
+                <div ng-repeat="menuitem in menuitems | filter:menuSearch">
                     <md-card class="navButton" md-colors="{background: 'default-primary-600'}" layout-padding ng-click="navigate(menuitem.url)">{{menuitem.title}}</md-card>
                 </div>
             </md-content>
