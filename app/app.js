@@ -1,7 +1,7 @@
 /**
  * Created by matt on 23/06/2016.
  */
-var app = angular.module('app', ['ngRoute', 'ngMaterial', 'ksSwiper']);
+var app = angular.module('app', ['ngRoute', 'ngMaterial', 'ngAnimate', 'ksSwiper']);
 
 app.controller('appCtrl', function($scope, $rootScope, $location, menuitems) {
 
