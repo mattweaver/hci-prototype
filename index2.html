@@ -1,0 +1,135 @@
+<html lang="en" >
+<head>
+    <script charset='UTF-8'>
+        window['adrum-start-time'] = new Date().getTime();
+        (function(config){
+            config.appKey = 'AD-AAB-AAT-TBS';
+            config.adrumExtUrlHttp = 'http://cdn.appdynamics.com';
+            config.adrumExtUrlHttps = 'https://cdn.appdynamics.com';
+            config.beaconUrlHttp = 'http://col.eum-appdynamics.com';
+            config.beaconUrlHttps = 'https://col.eum-appdynamics.com';
+            config.xd = {enable : false};
+            config.spa = {'spa2': true}; 
+            config.useHTTPSAlways = true;
+            //if (config.beacon) config.beacon.neverSendImageBeacon = false;
+            //else config.beacon = { neverSendImageBeacon: false };
+        })(window['adrum-config'] || (window['adrum-config'] = {}));
+        </script>
+        <script src='//cdn.appdynamics.com/adrum/adrum-4.4.3.717.js'></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MSY</title>
+    <link rel="icon" type="image/ico" href="img/favicon.ico"/>
+
+    <!-- Angular Material style sheet -->
+    <link rel="stylesheet" href="node_modules/angular-material/angular-material.min.css">
+    <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="node_modules/swiper/dist/css/swiper.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Angular.js Libraries -->
+    <script src="node_modules/swiper/dist/js/swiper.min.js"></script>
+    <script src="node_modules/angular/angular.min.js"></script>
+    <script src="node_modules/angular-route/angular-route.min.js"></script>
+    <script src="node_modules/angular-aria/angular-aria.min.js"></script>
+    <script src="node_modules/angular-animate/angular-animate.min.js"></script>
+    <script src="node_modules/angular-material/angular-material.min.js"></script>
+    <script src="node_modules/angular-swiper/dist/angular-swiper.js"></script>
+
+    <!-- Declare App -->
+    <script src="app/app.js"></script>
+    <script src="app/app.config.js"></script>
+
+    <!-- Load Views -->
+    <script src="app/views/home.view.js"></script>
+    <script src="app/views/products.view.js"></script>
+
+    <!-- Load Factories -->
+    <script src="app/factories/factory.js"></script>
+
+    <!-- Load Directives -->
+    <script src="app/directives/product.directive.js"></script>
+    <script src="app/directives/search.directive.js"></script>
+    <script src="app/directives/filter.directive.js"></script>
+
+    <!-- Load Dialogs -->
+    <script src="app/dialogs/product.dialog.js"></script>
+
+    <!-- Load Utils -->
+    <script src="app/utils/filters.js"></script>
+
+</head>
+<body ng-app="app" ng-controller="appCtrl" layout="column" layout-fill ng-cloak>
+    <div layout="row" flex>
+        <md-sidenav
+                class="md-sidenav-left"
+                md-component-id="left"
+                md-is-locked-open="true"
+                md-whiteframe="4"
+                style="display: inline-block"
+                md-colors="{background: 'default-primary-900'}">
+            <md-toolbar>
+                <img src="img/msylogo.png" ng-click="navigate('home')" style="cursor:pointer"/>
+            </md-toolbar>
+            <md-content md-colors="{background: 'default-primary-900'}">
+                <div layout="column" layout="padding" style="padding:10px;">
+                    <md-input-container style="margin:0; height: 25px;">
+                        <label style="color: rgba(254, 254, 254, 0.7)">Search Menu</label>
+                        <input ng-model="menuSearch" md-colors="{color: 'default-accent-100'}">
+                    </md-input-container>
+                </div>
+
+                <div ng-repeat="menuitem in menuitems | filter:menuSearch">
+                    <md-card class="navButton" md-colors="{background: 'default-primary-600'}" layout-padding ng-click="navigate(menuitem.url)">{{menuitem.title}}</md-card>
+                </div>
+            </md-content>
+        </md-sidenav>
+        <md-content flex style="display: inline-block;">
+            <md-toolbar layout="row" md-colors="{background: 'default-primary-800'}">
+                <span flex></span>
+                <h3 ng-if="location == '/' || location == 'home'">Home</h3>
+                <h3 ng-if="location == 'promotion-products'">Promotion Products</h3>
+                <h3 ng-if="location == 'new-products'">New Products</h3>
+                <h3 ng-if="location == 'pc-components'">PC Components</h3>
+                <h3 ng-if="location == 'peripherals'">Peripherals</h3>
+                <h3 ng-if="location == 'notebooks'">Notebooks</h3>
+                <h3 ng-if="location == 'notebook-accessories'">Notebook Accessories</h3>
+                <h3 ng-if="location == 'pc-accessories'">PC Accessories</h3>
+                <h3 ng-if="location == 'mobile-phone'">Mobile Phone</h3>
+                <h3 ng-if="location == 'stock-clearance'">Stock Clearance</h3>
+                <h3 ng-if="location == 'cableist-store'">CableList Store</h3>
+                <h3 ng-if="location == 'logitech-store'">Logitech Store</h3>
+                <h3 ng-if="location == 'microsoft-store'">Microsoft Store</h3>
+                <h3 ng-if="location == 'samsung-store'">Samsung Store</h3>
+                <h3 ng-if="location == 'corsair-store'">Corsair Store</h3>
+                <span flex></span>
+                <a href="http://www.facebook.com/msytech" style="color:#fff"><md-button style="background-color: #3b5998; margin: 20px;" aria-label="Learn More" >
+                    <i class="fa fa-facebook" aria-hidden="true"></i> Find us on Facebook
+                </md-button></a>
+            </md-toolbar>
+            <ng-view ng-cloak></ng-view>
+
+        </md-content>
+    </div>
+    <md-content md-colors="{background: 'default-accent-800'}" layout="row">
+        <md-card class="" md-colors="{background: 'default-accent-600'}" layout-padding layout="row" flex>
+            <span flex></span>
+            Contact Us
+            <span flex></span>
+        </md-card>
+        <md-card class="" md-colors="{background: 'default-accent-600'}" layout-padding flex layout="row">
+            <span flex></span>
+            Careers
+            <span flex></span>
+        </md-card>
+        <md-card class="" md-colors="{background: 'default-accent-600'}" layout-padding flex layout="row">
+            <span flex></span>
+            Privacy Statement
+            <span flex></span>
+        </md-card>
+    </md-content>
+
+
+</body>
+
+</html>
